@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "234547494319",
+    "firebase_url": "https://last-not-least.firebaseio.com",
+    "project_id": "last-not-least",
+    "storage_bucket": "last-not-least.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234547494319:android:acdf7eefd631a3ae82835a",
+        "android_client_info": {
+          "package_name": "ashraful.gafur.firebase_auth_gorgeous_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234547494319-ppndal1qvjfbql6261kuln0snpf5vktb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ashraful.gafur.firebase_auth_gorgeous_login",
+            "certificate_hash": "fcc90ff4fca923ab9553a1a9e9b991ede85d2d6d"
+          }
+        },
+        {
+          "client_id": "234547494319-hfq79tdgjpa7c5rfvqekej1hqcrvsvgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjXPbJYsjpVyESLr9smcsUWKlaj86ZVIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234547494319-hfq79tdgjpa7c5rfvqekej1hqcrvsvgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
