@@ -9,7 +9,7 @@ class FloatToast {
         msg: message,//"Invalid email or password!!!",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.SNACKBAR,
-        timeInSecForIosWeb: 2,
+        timeInSecForIosWeb: 3,
 
         backgroundColor: Colors.white70,
         textColor: Colors.pinkAccent,

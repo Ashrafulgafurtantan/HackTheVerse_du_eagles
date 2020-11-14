@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth_gorgeous_login/models/app_gaurd.dart';
 import 'package:firebase_auth_gorgeous_login/style/shared.dart';
+import 'package:firebase_auth_gorgeous_login/ui/positionDialogBox.dart';
 import 'package:firebase_auth_gorgeous_login/ui/signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -32,7 +33,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController signupNameController = new TextEditingController();
   TextEditingController signupPasswordController = new TextEditingController();
   TextEditingController signupConfirmPasswordController = new TextEditingController();
-
+  var position;
   void _toggleSignup() {
     setState(() {
       _obscureTextSignup = !_obscureTextSignup;
@@ -45,17 +46,16 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
-  createAccountInCloudFireStoreUsingEmailPasswordLogin(result,String name)async{
+  createAccountInCloudFireStoreUsingEmailPasswordLogin(result,String name)async{// Change ashbe
     print("createAccountInCloudFireStore = $result");
     await userRef.doc(result.email).set({
+      'account':position,//1 = doc,2=patient
       "displayName": name,
       "emailVerified" : result.emailVerified,
       'photoURL' : result.photoURL,
       "username":name,
       'email' : result.email,
     });
-
-
   }
 
  Future<bool> connectWithFirebaseAuthEmailPassword(String email,String password,String name)async{
@@ -67,7 +67,7 @@ class _SignUpState extends State<SignUp> {
       return false;
     }else{
       print("In signup class ");
-        await  createAccountInCloudFireStoreUsingEmailPasswordLogin(result,name);
+        await  createAccountInCloudFireStoreUsingEmailPasswordLogin(result,name);//Change ashbe
       FloatToast().floatToast("Account created.Email verification is necessary for Log in");
       return true;
     }
@@ -280,6 +280,13 @@ class _SignUpState extends State<SignUp> {
                         confirmPasswordValid=signupConfirmPasswordController.text==signupPasswordController.text;
                       });
                       if(nameValid&& emailValid && passwordValid && confirmPasswordValid){
+
+                        position = await showDialog(
+                          context: context,
+                          child: PositionDialogBox()
+                        );
+                        print(position);
+
                        bool clearCredencials = await connectWithFirebaseAuthEmailPassword(signupEmailController.text,signupPasswordController.text,signupNameController.text);
                         if(clearCredencials){
                           signupNameController.clear();

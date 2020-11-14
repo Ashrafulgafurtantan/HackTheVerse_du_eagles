@@ -4,11 +4,11 @@ class AppUser{
 
   final String username;
   final  String email;
-
+  final  int account;/////
   final  String photoURL;
 
 
-  AppUser({this.email,this.username,this.photoURL});
+  AppUser({this.email,this.username,this.photoURL,this.account});
 
   factory AppUser.fromDocument(DocumentSnapshot doc,String email){
     String photo=doc['photoURL'];
@@ -24,6 +24,7 @@ class AppUser{
 
     return AppUser(
       email   :email,
+      account: doc['account'],
       photoURL  :photo ,
       username  :doc['username'],
     );
@@ -31,6 +32,6 @@ class AppUser{
 
   @override
   String toString() {
-    return 'AppUser{username: $username, email: $email, photoURL: $photoURL}';
+    return 'AppUser{username: $username, email: $email, photoURL: $photoURL, account: $account}';
   }
 }
